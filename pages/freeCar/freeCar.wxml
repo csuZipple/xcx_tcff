@@ -1,0 +1,22 @@
+<!--pages/freeCar/freeCar.wxml-->
+<scroll-view>
+<view class="search-destination">
+   <input class="search-input" placeholder="请输入目的地..." />
+   <button class="btn green" formType="reset" bindtap="search">搜索</button>
+    <button class="btn blue" formType="reset" bindtap="deploy">发布</button>
+ </view>
+
+<!--人找车，车找人-->
+   <view class="item">
+     <view class="item-title">
+       <image src="../../resource/images/camera.jpg" mode="scaleToFill"></image>
+       <text>巴拉巴拉</text>
+     </view>
+     <view class="detail">
+       <view class="introduction">描述:This is a intr</view>
+     </view>
+   </view>
+
+
+</scroll-view>
+

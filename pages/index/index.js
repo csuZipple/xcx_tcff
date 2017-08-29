@@ -11,7 +11,7 @@ Page({
        },{
         text: "拼顺风车",
         imageUrl: "../../resource/images/icon/shop.png",
-        link: "../deploy/deploy"
+        link: "../freeCar/freeCar"
       }, {
         text: "二手交易",
         imageUrl: "../../resource/images/icon/shop.png",
@@ -31,7 +31,7 @@ Page({
       }, {
         text: "附近商家",
         imageUrl: "../../resource/images/icon/shop.png",
-        link: "../deploy/deploy"
+        link: "../local/local"
       }, {
         text: "发布",
         imageUrl: "../../resource/images/icon/shop.png",
