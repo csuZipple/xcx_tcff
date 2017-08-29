@@ -1,0 +1,37 @@
+<!--deploy.wxml-->
+<view class="main-wrapper">
+ <view class="error-tips" style="display:{{showError}}">{{errorTips}}</view>
+<view class="wrapper">
+<form bindreset="formReset">
+  
+   <!-- 注册商家 界面 获取用户微信信息 -->
+
+   <view class="main-register">
+      <view class="text-input"><view class="text">店主</view><input name="creator" class="name" data-name="creator" data-des="店主姓名" placeholder="如：zipple" bindblur="getCurrentData" />   </view>
+      <view class="text-input"><view class="text">店名</view><input class="name black" name="title" data-name="title" data-des="商店名称" placeholder="如：桂湘缘螺蛳粉"  bindblur="getCurrentData" /></view>
+     <view class="text-tips">请填写商店描述信息</view>
+      <textarea name="descript" data-name="description" data-des="商店描述" placeholder="如：螺蛳粉是广西柳州市的小吃米粉，具有辣、爽、鲜、酸、烫的独特风味。螺蛳粉的味美还因为它有着独特的汤料。汤料由螺蛳肉、山奈、八角、肉桂、丁香、多种辣椒、等天然香料和味素配制而成。" bindblur="getCurrentData"  />
+      <view class="text-input"><view class="text">手机</view><input name="contact"  class="name black" data-name="phone" data-des="联系方式" placeholder="如：18373151083"  bindblur="getCurrentData" /></view>
+      <view class="text-input"><view class="text">地址</view><input name="location"  class="name black" data-name="location" data-des="商店地址" placeholder="如：中南大学铁道学院，小吃一条街" bindblur="getCurrentData"  /></view>
+      <picker name="类别" data-name="shop_type"><!-- model类别和商店类别-->
+      
+      </picker>
+   </view>
+ 
+   <view class="protocal">
+      <checkbox value="1" checked="true" style="transform:scale(.6)" /><view>已阅读并同意《<navigator url="protocal">商家入驻条约</navigator>》</view>
+   </view>
+
+  <view class="btn-area">
+    <button formType="reset" bindtap="formSubmit" class="submit">注册</button>
+    <button formType="reset" class="reset">Reset</button>
+  </view>
+
+  <view>
+  <!-- 模态对话框的属性由表单的返回信息提供  -->
+   <modal title="注册成功" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消"
+  bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">注册成功！</modal>
+  </view>
+</form>
+</view>
+</view>
