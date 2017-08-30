@@ -16,6 +16,13 @@
       <picker name="类别" data-name="shop_type"><!-- model类别和商店类别-->
       
       </picker>
+
+      <view class="avatar">
+      <view class="more-text">图片上传 </view>
+      </view>
+      <view class="addImg">
+        <image src="../../resource/images/icon/add.png" mode="scaleToFill"></image>
+      </view>
    </view>
  
    <view class="protocal">

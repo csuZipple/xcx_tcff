@@ -28,20 +28,21 @@
       </view>
    </view>
 <view class="comment-wrapper">
+<form bindreset="formReset">
 <text class="comment-tag">留言：</text>
-<textarea  />
-<button class="submit green">提交</button>
+<textarea bindblur="getText" />
+<button class="submit green" form-type="reset" bindtap="sendMsg">提交</button>
+</form>
 </view>
-
-
-   <view class="comment-item">
-   <view class="item-title">
-       <image src="../../resource/images/camera.jpg" mode="scaleToFill"></image>
-       <text>ice</text>
-     </view>
-     <view class="introduction item-text">明天八点钟，还有一个座位去常德,想去的随时打电话给我，我帮你预留一个座位</view>
-     <view class="introduction item-text" >时间：2017-08-09 18:32</view>
-   </view>
-
+       <block wx:for="{{msg}}">
+           <view class="comment-item">
+             <view class="item-title">
+                 <image src="../../resource/images/camera.jpg" mode="scaleToFill"></image>
+             <text>{{item.name}}</text>
+             </view>
+              <view class="introduction item-text">{{item.text}}</view>
+              <view class="introduction item-text" >{{item.time}}</view>
+            </view>
+       </block>
 
 </scroll-view>

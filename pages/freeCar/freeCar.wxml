@@ -7,54 +7,32 @@
  </view>
 
 <!--人找车，车找人-->
+ <block wx:for="{{model}}">
    <view class="item white" bindtap="linkTo" >
      <view class="item-title">
        <image src="../../resource/images/camera.jpg" mode="scaleToFill"></image>
-       <text>从长沙去常德</text>
+       <text>{{item.title}}</text>
      </view>
      <view class="detail">
-     <text class="item-tag">详细信息：</text>
-     <text class="introduction item-text">明天八点钟，还有一个座位去常德,想去的随时打电话给我，我帮你预留一个座位</text>
+     <text class="item-tag">{{tags.description}}：</text>
+     <text class="introduction item-text">{{item.description}}</text>
      </view>
-     <view class="detail">
-     <text class="item-tag">出发地址：</text>
-     <text class="introduction item-text">长沙市天心区</text>
+     <view class="detail" style="display:{{showExtra1}}">
+     <text class="item-tag">{{tags.extra1}}：</text>
+     <text class="introduction item-text">{{item.extra1}}</text>
      </view>
-          <view class="detail">
-               <text class="item-tag">目的地：</text>
-     <text class="introduction item-text">常德市桃源县</text>
+          <view class="detail" style="display:{{showLocation}}">
+               <text class="item-tag">{{tags.location}}：</text>
+     <text class="introduction item-text">{{item.location}}</text>
      </view>
-     <view class="detail">
-              <text class="item-tag">出发时间：</text>
-     <text class="introduction item-text">2017-08-09</text>
+     <view class="detail" style="display:{{showExtra2}}">
+              <text class="item-tag">{{tags.extra2}}：</text>
+     <text class="introduction item-text">{{item.extra2}}</text>
       </view>
       
    </view>
+</block>
 
-<!--人找车，车找人-->
-   <view class="item white">
-     <view class="item-title">
-       <image src="../../resource/images/camera.jpg" mode="scaleToFill"></image>
-       <text>从长沙去常德</text>
-     </view>
-     <view class="detail">
-     <text class="item-tag">详细信息：</text>
-     <text class="introduction item-text">明天八点钟，还有一个座位去常德,想去的随时打电话给我，我帮你预留一个座位</text>
-     </view>
-     <view class="detail">
-     <text class="item-tag">出发地址：</text>
-     <text class="introduction item-text">长沙市天心区</text>
-     </view>
-          <view class="detail">
-               <text class="item-tag">目的地：</text>
-     <text class="introduction item-text">常德市桃源县</text>
-     </view>
-     <view class="detail">
-              <text class="item-tag">出发时间：</text>
-     <text class="introduction item-text">2017-08-09</text>
-      </view>
-      
-   </view>
 
 </scroll-view>
 

@@ -121,3 +121,7 @@ textarea{
   box-sizing: border-box;
   padding: 4px 8px;
 }
+
+.text-right{
+  text-align: right;
+}
