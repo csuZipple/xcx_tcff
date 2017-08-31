@@ -1,22 +1,12 @@
 /* pages/freeCar/freeCar.wxss */
-.main-wrapper{
-  width: 100%;
- font-family: "黑体";
-  background: #eee;
-}
+
 .wrapper{
-  width: 100%;
-  height: 100%;
-  padding-top: 8px;
-  box-sizing: border-box;
-  background: #eee;
-}
-.white{
-  background: white;
+  height: 90%;
+  background: #efefef;
 }
 .search-destination{
   height:60px;
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
 
   display: flex;
@@ -25,7 +15,6 @@
   align-items: center;
 }
 .search-input{
-  margin-left: 20px;
   width: 360rpx;
   height: 36px;
   border-radius: 5px;
@@ -50,11 +39,11 @@
 }
 
 .item{
-  padding:10px;
-  box-sizing: border-box;
+  background: white;
   width: 100%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 2px 8px;
 }
 .item-title{
   width: 100%;
@@ -88,4 +77,47 @@
   height:1px;
   background: lightgray;
   width: 100%;
+}
+
+textarea{
+  margin: 0 auto;
+  border: 1px gray solid;
+  height:100px;
+  width:85%;
+}
+.comment{
+  margin-top: 20px;
+}
+.submit{
+  margin-top: 10px;
+  border-radius: 4px;
+  width: 85%;
+  color: white;
+}
+.comment-wrapper{
+   margin-top:10px;
+   background: white;
+   padding:8px;
+}
+.comment-tag{
+  
+  margin-left:7.5%;
+}
+.bottom-wrapper{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.bottom-botton{
+  color: white;
+  width:30%;
+}
+
+.comment-item{
+    background: white;
+  width: 100%;
+  margin: 5px auto;
+  box-sizing: border-box;
+  padding: 4px 8px;
 }

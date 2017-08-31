@@ -3,8 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/deploy/deploy",
-    "pages/local/local",
-    "pages/freeCar/freeCar"
+    "pages/freeCar/freeCar",
+    "pages/detail/detail"
   ],
   "tabBar": {
     "list": [

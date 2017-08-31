@@ -1,4 +1,4 @@
-// local.js
+// pages/detail/detail.js
 Page({
 
   /**

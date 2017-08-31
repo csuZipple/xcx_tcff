@@ -1,0 +1,47 @@
+<!--pages/detail/detail.wxml-->
+<!--人找车，车找人-->
+<scroll-view class="wrapper">
+   <view class="item">
+     <view class="item-title">
+       <image src="../../resource/images/camera.jpg" mode="scaleToFill"></image>
+       <text>从长沙去常德</text>
+     </view>
+     <view class="detail">
+     <text class="item-tag">详细信息：</text>
+     <text class="introduction item-text">明天八点钟，还有一个座位去常德,想去的随时打电话给我，我帮你预留一个座位</text>
+     </view>
+     <view class="detail">
+     <text class="item-tag">出发地址：</text>
+     <text class="introduction item-text">长沙市天心区</text>
+     </view>
+          <view class="detail">
+               <text class="item-tag">目的地：</text>
+     <text class="introduction item-text">常德市桃源县</text>
+     </view>
+     <view class="detail">
+    <text class="item-tag">出发时间：</text>
+     <text class="introduction item-text">2017-08-09</text>
+      </view>
+    <view class="detail">
+    <text class="item-tag">联系电话：</text>
+     <text class="introduction item-text">18373153353</text>
+      </view>
+   </view>
+<view class="comment-wrapper">
+<text class="comment-tag">留言：</text>
+<textarea  />
+<button class="submit green">提交</button>
+</view>
+
+
+   <view class="comment-item">
+   <view class="item-title">
+       <image src="../../resource/images/camera.jpg" mode="scaleToFill"></image>
+       <text>ice</text>
+     </view>
+     <view class="introduction item-text">明天八点钟，还有一个座位去常德,想去的随时打电话给我，我帮你预留一个座位</view>
+     <view class="introduction item-text" >时间：2017-08-09 18:32</view>
+   </view>
+
+
+</scroll-view>
