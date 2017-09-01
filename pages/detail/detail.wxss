@@ -1,7 +1,7 @@
 /* pages/freeCar/freeCar.wxss */
 
 .wrapper{
-  height: 90%;
+   font-family: "黑体";
   background: #efefef;
 }
 .search-destination{

@@ -19,7 +19,15 @@ Page({
       location:"",
       shop_type:"",
       model_type:""
-    }
+    },
+    tag: {},//静态信息
+    model: {},//动态信息
+    //控制
+    showPhone: "block",
+    showLocation: "block",
+    showPictures: "block",
+    showExtra1: "block",
+    showExtra2: "block",
   },
 
   /**
@@ -27,9 +35,59 @@ Page({
    */
   onLoad: function (options) {
      wx.setNavigationBarTitle({
-       title: '商店注册',
+       title: '发布信息',
      });
      //获取当前页面的指针?
+     var that = this;
+     var id = options.id;
+     that.setData({
+       tag_id: id
+     })
+     //获取tag
+     wx.request({
+       url: getApp().globalData.tag_url + id + "/",//上线的话必须是https，没有appId的本地请求貌似不受影响  
+       data: {},
+       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+       // header: {}, // 设置请求的 header  
+       success: function (res) {
+
+         if (!res.data.location) {
+           that.setData({
+             showLocation: "none"
+           })
+         }
+
+         if (!res.data.pictrues) {
+           that.setData({
+             showPictrues: "none"
+           })
+         }
+
+         if (!res.data.extra1) {
+           that.setData({
+             showExtra1: "none"
+           })
+         }
+
+         if (!res.data.extra2) {
+           that.setData({
+             showExtra2: "none"
+           })
+         }
+
+         that.setData({
+           tag: res.data
+         })
+
+         console.log(that.data)
+       },
+       fail: function () {
+         // fail  
+       },
+       complete: function () {
+         // complete  
+       }
+     })  
   },
 
   /**

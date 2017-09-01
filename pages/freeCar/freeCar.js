@@ -14,7 +14,8 @@ Page({
     showLocation:"none",
     showPictures:"none",
     showExtra1:"none",
-    showExtra2:"none"
+    showExtra2:"none",
+    tag_id:"",
   },
 
   /**
@@ -23,8 +24,12 @@ Page({
   onLoad: function (options) {
     var that=this;
     var id = options.id;
+    that.setData({
+      tag_id:id
+    })
+    //获取tag
     wx.request({
-      url: 'https://www.ice97.cn/xcx/tags/'+id+"/",//上线的话必须是https，没有appId的本地请求貌似不受影响  
+      url: getApp().globalData.tag_url+id+"/",//上线的话必须是https，没有appId的本地请求貌似不受影响  
       data: {},
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
       // header: {}, // 设置请求的 header  
@@ -67,9 +72,9 @@ Page({
         // complete  
       }
     })  
-
+    //获取某类model
     wx.request({
-      url: 'https://www.ice97.cn/xcx/beans/'+id+"/",//上线的话必须是https，没有appId的本地请求貌似不受影响  
+      url: getApp().globalData.models_url+id+"/",//上线的话必须是https，没有appId的本地请求貌似不受影响  
       data: {},
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
       // header: {}, // 设置请求的 header  
@@ -140,8 +145,15 @@ Page({
   
   },
   linkTo: function (event) {
+    var that = this;
     wx.navigateTo({
-      url: "../detail/detail",
+      url: "../detail/detail?id=" + event.currentTarget.dataset.id+"&tag_id="+that.data.tag_id,
+    })
+  },
+  deploy:function(event){
+    var that = this;
+    wx.navigateTo({
+      url: "../deploy/deploy?id=" + that.data.tag_id
     })
   }
 })

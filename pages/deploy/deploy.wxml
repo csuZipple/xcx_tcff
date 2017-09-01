@@ -7,22 +7,23 @@
    <!-- 注册商家 界面 获取用户微信信息 -->
 
    <view class="main-register">
-      <view class="text-input"><view class="text">店主</view><input name="creator" class="name" data-name="creator" data-des="店主姓名" placeholder="如：zipple" bindblur="getCurrentData" />   </view>
-      <view class="text-input"><view class="text">店名</view><input class="name black" name="title" data-name="title" data-des="商店名称" placeholder="如：桂湘缘螺蛳粉"  bindblur="getCurrentData" /></view>
-     <view class="text-tips">请填写商店描述信息</view>
+      <!-- <view class="text-input"><view class="text">店主</view><input name="creator" class="name" data-name="creator" data-des="店主姓名" placeholder="如：zipple" bindblur="getCurrentData" />   </view> -->
+      <view class="text-input"><view class="text">{{tag.title}}</view><input class="name black" name="title" data-name="title" data-des="商店名称" placeholder="如：桂湘缘螺蛳粉"  bindblur="getCurrentData" /></view>
+     <view class="text-tips">请填写{{tag.description}}</view>
       <textarea name="descript" data-name="description" data-des="商店描述" placeholder="如：螺蛳粉是广西柳州市的小吃米粉，具有辣、爽、鲜、酸、烫的独特风味。螺蛳粉的味美还因为它有着独特的汤料。汤料由螺蛳肉、山奈、八角、肉桂、丁香、多种辣椒、等天然香料和味素配制而成。" bindblur="getCurrentData"  />
       <view class="text-input"><view class="text">手机</view><input name="contact"  class="name black" data-name="phone" data-des="联系方式" placeholder="如：18373151083"  bindblur="getCurrentData" /></view>
-      <view class="text-input"><view class="text">地址</view><input name="location"  class="name black" data-name="location" data-des="商店地址" placeholder="如：中南大学铁道学院，小吃一条街" bindblur="getCurrentData"  /></view>
-      <picker name="类别" data-name="shop_type"><!-- model类别和商店类别-->
+      <view class="text-input" style="display:{{showExtra1}}"><view class="text">{{tag.extra1}}</view><input name="extra1"  class="name black" data-name="location" data-des="商店地址" placeholder="" bindblur="getCurrentData"  /></view>
+      <view class="text-input" style="display:{{showLocation}}"><view class="text">{{tag.location}}</view><input name="location"  class="name black" data-name="location" data-des="商店地址" placeholder="" bindblur="getCurrentData"  /></view>
+      <view class="text-input" style="display:{{showExtra2}}"><view class="text">{{tag.extra2}}</view><input name="extra2"  class="name black" data-name="location" data-des="商店地址" placeholder="" bindblur="getCurrentData"  /></view>
       
-      </picker>
+      <picker name="类别" data-name="shop_type"><!-- model类别和商店类别--></picker>
 
-      <view class="avatar">
+      <!-- <view class="avatar">
       <view class="more-text">图片上传 </view>
       </view>
       <view class="addImg">
         <image src="../../resource/images/icon/add.png" mode="scaleToFill"></image>
-      </view>
+      </view> -->
    </view>
  
    <view class="protocal">

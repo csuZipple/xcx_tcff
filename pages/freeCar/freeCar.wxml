@@ -8,7 +8,7 @@
 
 <!--人找车，车找人-->
  <block wx:for="{{model}}">
-   <view class="item white" bindtap="linkTo" >
+   <view class="item white" bindtap="linkTo" data-id="{{item.id}}">
      <view class="item-title">
        <image src="../../resource/images/camera.jpg" mode="scaleToFill"></image>
        <text>{{item.title}}</text>

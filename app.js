@@ -24,6 +24,9 @@ App({
   },
 
   globalData: {
-    userInfo: null
+    userInfo: null,
+    tag_url:'https://www.ice97.cn/xcx/getTag/',
+    model_url:'https://www.ice97.cn/xcx/models/',
+    models_url:"https://www.ice97.cn/xcx/beans/"
   }
 })

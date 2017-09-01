@@ -13,14 +13,90 @@ Page({
         time:"2017-08-30 22:16"
         }
     ],
-    temp:""
+    tags: {},//静态信息
+    model: {},//动态信息
+    //控制
+    showPhone: "none",
+    showLocation: "none",
+    showPictures: "none",
+    showExtra1: "none",
+    showExtra2: "none",
+    temp:"",
+    tag_id:"",
+    model_id:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that =this;
+    that.data.tag_id=options.tag_id;
+    that.data.model_id=options.id;
+
+    wx.request({
+      url: getApp().globalData.tag_url + options.tag_id + "/",//上线的话必须是https，没有appId的本地请求貌似不受影响  
+      data: {},
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+      // header: {}, // 设置请求的 header  
+      success: function (res) {
+
+        if (res.data.location) {
+          that.setData({
+            showLocation: "block"
+          })
+        }
+
+        if (res.data.pictrues) {
+          that.setData({
+            showPictrues: "block"
+          })
+        }
+
+        if (res.data.extra1) {
+          that.setData({
+            showExtra1: "block"
+          })
+        }
+
+        if (res.data.extra2) {
+          that.setData({
+            showExtra2: "block"
+          })
+        }
+
+        that.setData({
+          tags: res.data
+        })
+
+        console.log(that.data)
+      },
+      fail: function () {
+        // fail  
+      },
+      complete: function () {
+        // complete  
+      }
+    })
+
+    wx.request({
+      url: getApp().globalData.model_url + options.id + "/",//上线的话必须是https，没有appId的本地请求貌似不受影响  
+      data: {},
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+      // header: {}, // 设置请求的 header  
+      success: function (res) {
+        that.setData({
+          model: res.data
+        })
+      },
+      fail: function () {
+        // fail  
+      },
+      complete: function () {
+        // complete  
+      }
+    })  
+
   },
 
   /**
