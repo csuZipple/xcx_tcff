@@ -1,0 +1,12 @@
+<!--pages/publish/publish.wxml-->
+<view class="wrapper">
+<view class="title">请选择您要发布的内容：</view>
+<view class="info-container">
+        <block wx:for="{{infoType}}">
+          <view class="item-container">
+              <image mode="scaleToFill" src="{{item.imageUrl}}" bindtap="linkTo" data-link="{{item.link}}"></image>
+              <text>{{item.text}}</text>
+          </view>
+       </block>
+</view>
+</view>

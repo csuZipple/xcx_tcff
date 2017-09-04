@@ -27,15 +27,15 @@
    <!-- 附近热门  -->
    <view class="hot-info">
      <view class="title">附近热门</view>
-     <block>
+     <block wx:for="{{models}}">
        <view class="image-info">
-         <image mode="scaleToFill" src="../../resource/images/girl.jpg"></image>
+         <image mode="scaleToFill" src="https://www.ice97.cn/download/xcx/default.jpg"></image>
          <view class="text-container">
            <view class="essay-title"> 
-             安河桥-宋冬野 
+             {{item.title}}
            </view>
            <view class="essay-summary">
-             让我再看你一眼从南到北，像是被五环路蒙住的双眼
+             {{item.description}}
            </view>
          </view>
        </view>

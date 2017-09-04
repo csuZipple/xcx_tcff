@@ -27,6 +27,9 @@ App({
     userInfo: null,
     tag_url:'https://www.ice97.cn/xcx/getTag/',
     model_url:'https://www.ice97.cn/xcx/models/',
-    models_url:"https://www.ice97.cn/xcx/beans/"
+    models_url:"https://www.ice97.cn/xcx/beans/",
+    latest:'https://www.ice97.cn/xcx/getLatest/',
+    adverts: 'https://www.ice97.cn/xcx/adverts/'
+    
   }
 })

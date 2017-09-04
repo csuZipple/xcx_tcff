@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/deploy/deploy",
     "pages/freeCar/freeCar",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/publish/publish"
   ],
   "tabBar": {
     "list": [

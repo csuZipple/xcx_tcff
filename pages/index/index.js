@@ -5,6 +5,7 @@ Page({
   data: {
     userInfo: {},
     banner:[],
+    models:[],
     infoType:[
       {text:"招聘求职",
         imageUrl:"../../resource/images/icon/boss.png",
@@ -36,7 +37,7 @@ Page({
       }, {
         text: "发布",
         imageUrl: "../../resource/images/icon/deploy.png",
-        link:"../deploy/deploy"
+        link:"../publish/publish"
       },
       
     ]
@@ -54,7 +55,7 @@ Page({
 
 
     wx.request({
-      url: 'https://www.ice97.cn/xcx/adverts/',//上线的话必须是https，没有appId的本地请求貌似不受影响  
+      url: getApp().globalData.adverts,//上线的话必须是https，没有appId的本地请求貌似不受影响  
       data: {},
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
       // header: {}, // 设置请求的 header  
@@ -70,7 +71,25 @@ Page({
       complete: function () {
         // complete  
       }
-    })  
+    }) ,
+      wx.request({
+      url: getApp().globalData.latest,//上线的话必须是https，没有appId的本地请求貌似不受影响  
+        data: {},
+        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+        // header: {}, // 设置请求的 header  
+        success: function (res) {
+          console.log(res)
+          that.setData({
+            models: res.data.data
+          })
+        },
+        fail: function () {
+          // fail  
+        },
+        complete: function () {
+          // complete  
+        }
+      }) 
 
   },
   linkTo: function (event) {
