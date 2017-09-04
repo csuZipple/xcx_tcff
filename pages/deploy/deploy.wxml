@@ -8,13 +8,13 @@
 
    <view class="main-register">
       <!-- <view class="text-input"><view class="text">店主</view><input name="creator" class="name" data-name="creator" data-des="店主姓名" placeholder="如：zipple" bindblur="getCurrentData" />   </view> -->
-      <view class="text-input"><view class="text">{{tag.title}}</view><input class="name black" name="title" data-name="title" data-des="{{tag.title}}" placeholder="请填写{{tag.title}}"  bindblur="getCurrentData" /></view>
+      <view class="text-input"><view class="text">{{tag.title}}</view><input class="name black" name="title" data-name="title" data-des="{{tag.title}}" placeholder="请填写{{tag.title}}"  bindinput="getCurrentData" /></view>
      <view class="text-tips">请填写{{tag.description}}</view>
-      <textarea name="descript" data-name="description" data-des="{{tag.description}}" placeholder="请填写{{tag.description}}" bindblur="getCurrentData"  />
-      <view class="text-input"><view class="text">联系电话</view><input name="contact"  class="name black" data-name="phone" data-des="联系方式" placeholder="请填写正确的联系电话"  bindblur="getCurrentData" /></view>
-      <view class="text-input" style="{{showExtra1}}"><view class="text">{{tag.extra1}}</view><input name="extra1"  class="name black" data-name="extra1" data-des="{{tag.extra1}}" placeholder="请填写{{tag.extra1}}" bindblur="getCurrentData"  /></view>
-      <view class="text-input" style="{{showLocation}}"><view class="text">{{tag.location}}</view><input name="location"  class="name black" data-name="location" data-des="{{tag.location}}" placeholder="请填写{{tag.location}}" bindblur="getCurrentData"  /></view>
-      <view class="text-input" style="{{showExtra2}}"><view class="text">{{tag.extra2}}</view><input name="extra2"  class="name black" data-name="extra2" data-des="{{tag.extra2}}" placeholder="请填写{{tag.extra2}}" bindblur="getCurrentData"  /></view>
+      <textarea name="descript" data-name="description" data-des="{{tag.description}}" placeholder="请填写{{tag.description}}" bindinput="getCurrentData"  />
+      <view class="text-input"><view class="text">联系电话</view><input name="contact"  class="name black" data-name="phone" data-des="联系方式" placeholder="请填写正确的联系电话"  bindinput="getCurrentData" /></view>
+      <view class="text-input" style="{{showExtra1}}"><view class="text">{{tag.extra1}}</view><input name="extra1"  class="name black" data-name="extra1" data-des="{{tag.extra1}}" placeholder="请填写{{tag.extra1}}" bindinput="getCurrentData"  /></view>
+      <view class="text-input" style="{{showLocation}}"><view class="text">{{tag.location}}</view><input name="location"  class="name black" data-name="location" data-des="{{tag.location}}" placeholder="请填写{{tag.location}}" bindinput="getCurrentData"  /></view>
+      <view class="text-input" style="{{showExtra2}}"><view class="text">{{tag.extra2}}</view><input name="extra2"  class="name black" data-name="extra2" data-des="{{tag.extra2}}" placeholder="请填写{{tag.extra2}}" bindinput="getCurrentData"  /></view>
       
       <picker name="类别" data-name="shop_type"><!-- model类别和商店类别--></picker>
 

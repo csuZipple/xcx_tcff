@@ -171,30 +171,32 @@ Page({
   formSubmit: function (e) {
     var that = this;
     //判断表单数据是否符合规定,不为空，格式符合要求
-       if(this.data.register["creator"]==""){
-         that.makeToast("店主姓名不能为空！")
-       } else if (this.data.register["title"] == "") {
-         that.makeToast("店名不能为空！")
-       } else if (this.data.register["description"] == "") {
-         that.makeToast("商店描述不能为空！")
-       } else if (this.data.register["phone"] == "") {
-         that.makeToast("联系方式不能为空！")
-       } else if (this.data.register["location"] == "") {
-         that.makeToast("地址不能为空！")
-       }else{
+      //  if(this.data.register["creator"]==""){
+      //    that.makeToast("店主姓名不能为空！")
+      //  } else if (this.data.register["title"] == "") {
+      //    that.makeToast("店名不能为空！")
+      //  } else if (this.data.register["description"] == "") {
+      //    that.makeToast("商店描述不能为空！")
+      //  } else if (this.data.register["phone"] == "") {
+      //    that.makeToast("联系方式不能为空！")
+      //  } else if (this.data.register["location"] == "") {
+      //    that.makeToast("地址不能为空！")
+      //  }else{
          //如果提交成功--启动对话框
 
          wx.request({
            url: 'https://ice97.cn/xcx/models/',
            header: {
-             "Content-Type": "application/x-www-form-urlencoded"
+             "Content-Type": "application/json"
            },
            method: "POST",
-           data: { creator: this.data.register["creator"], 
-                   title: this.data.register["title"], 
-                   description: this.data.register["description"], 
-                   location: this.data.register["location"], 
-                   phone: this.data.register["phone"], 
+           data: {
+             model_type:that.data.tag_id,
+             creator: "admin", 
+             title: that.data.register["title"], 
+             description: that.data.register["description"], 
+             location: that.data.register["location"], 
+             phone: that.data.register["phone"], 
                    //shop_type,model_type
               },
            success: function (res) {
@@ -221,7 +223,7 @@ Page({
         //  this.setData({
         //    modalHidden: !this.data.modalHidden
         //  })
-       }
+      //  }
     
    
     //清除数据
