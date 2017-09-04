@@ -62,7 +62,7 @@
   border-radius: 50%;
 }
 .item-title text{
-  font-size: 12px;
+  font-size: 20px;
 }
 .item-tag{
   color:  black;

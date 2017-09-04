@@ -20,14 +20,16 @@ Page({
       shop_type:"",
       model_type:""
     },
-    tag: {},//静态信息
+    tag: {extra1:"一二三四",
+          location:"一二三四",
+          extra2:"一二三四"},//静态信息
     model: {},//动态信息
     //控制
-    showPhone: "block",
-    showLocation: "block",
-    showPictures: "block",
-    showExtra1: "block",
-    showExtra2: "block",
+    showPhone: "",
+    showLocation: "",
+    showPictures: "",
+    showExtra1: "",
+    showExtra2: ""
   },
 
   /**
@@ -53,25 +55,25 @@ Page({
 
          if (!res.data.location) {
            that.setData({
-             showLocation: "none"
+             showLocation: "display:none"
            })
          }
 
          if (!res.data.pictrues) {
            that.setData({
-             showPictrues: "none"
+             showPictrues: "display:none"
            })
          }
 
          if (!res.data.extra1) {
            that.setData({
-             showExtra1: "none"
+             showExtra1: "display:none"
            })
          }
 
          if (!res.data.extra2) {
            that.setData({
-             showExtra2: "none"
+             showExtra2: "display:none"
            })
          }
 
