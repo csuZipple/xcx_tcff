@@ -60,6 +60,7 @@ Page({
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
       // header: {}, // 设置请求的 header  
       success: function (res) {
+        console.log(getApp().globalData.userInfo)
         console.log(res)
         that.setData({
           banner: res.data

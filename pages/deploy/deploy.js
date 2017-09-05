@@ -192,7 +192,8 @@ Page({
            method: "POST",
            data: {
              model_type:that.data.tag_id,
-             creator: "admin", 
+             avatarUrl: getApp().globalData.userInfo.avatarUrl,
+             nickName: getApp().globalData.userInfo.nickName, 
              title: that.data.register["title"], 
              description: that.data.register["description"], 
              location: that.data.register["location"], 

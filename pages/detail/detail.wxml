@@ -3,7 +3,7 @@
 <scroll-view class="wrapper">
   <view class="item white" bindtap="linkTo" >
      <view class="item-title">
-       <image src="../../resource/images/camera.jpg" mode="scaleToFill"></image>
+       <image src="{{model.avatarUrl}}" mode="scaleToFill"></image>
        <text>{{model.title}}</text>
      </view>
      <view class="detail">

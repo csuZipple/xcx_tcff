@@ -10,7 +10,7 @@
  <block wx:for="{{model}}">
    <view class="item white" bindtap="linkTo" data-id="{{item.id}}">
      <view class="item-title">
-       <image src="../../resource/images/camera.jpg" mode="scaleToFill"></image>
+       <image src="{{item.avatarUrl}}" mode="scaleToFill"></image>
        <text>{{item.title}}</text>
      </view>
      <view class="detail">
