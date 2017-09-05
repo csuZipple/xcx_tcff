@@ -30,18 +30,18 @@
 <view class="comment-wrapper">
 <form bindreset="formReset">
 <text class="comment-tag">留言：</text>
-<textarea bindblur="getText" />
+<textarea bindinput="getText" />
 <button class="submit green" form-type="reset" bindtap="sendMsg">提交</button>
 </form>
 </view>
-       <block wx:for="{{msg}}">
+       <block wx:for="{{model.comment_set}}">
            <view class="comment-item">
              <view class="item-title">
-                 <image src="../../resource/images/camera.jpg" mode="scaleToFill"></image>
-             <text>{{item.name}}</text>
+                 <image src="{{item.avatarUrl}}" mode="scaleToFill"></image>
+             <text>{{item.nickName}}</text>
              </view>
-              <view class="introduction item-text">{{item.text}}</view>
-              <view class="introduction item-text" >{{item.time}}</view>
+              <view class="introduction item-text">{{item.content}}</view>
+              <view class="introduction item-text" >{{item.createdAt}}</view>
             </view>
        </block>
 

@@ -18,7 +18,9 @@ Page({
       phone:"",
       location:"",
       shop_type:"",
-      model_type:""
+      model_type:"",
+      extra1:"",
+      extra2:""
     },
     tag: {extra1:"一二三四",
           location:"一二三四",
@@ -198,6 +200,8 @@ Page({
              description: that.data.register["description"], 
              location: that.data.register["location"], 
              phone: that.data.register["phone"], 
+             extra1:that.data.register["extra1"],
+             extra2: that.data.register["extra2"]
                    //shop_type,model_type
               },
            success: function (res) {

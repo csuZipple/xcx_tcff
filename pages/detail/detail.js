@@ -148,35 +148,44 @@ Page({
   
   },
   getText:function(event){
-    this.makeToast("调用getText");
-    var that = this;
-    //添加msg
-    if(event.detail.value!=""){
-      var obj = {
-        name: "默认名",
-        text: "",
-        time: ""
-        };
-      var time = util.formatTime(new Date());  
-      obj.time=time;
-      obj.text = event.detail.value;
-
-      that.data.msg.push(obj);
-      that.setData({
-        temp: that.data.msg
-      })
-      event.detail.value="";
-
-    }else{
-      this.makeToast("留言不能为空");
-    }
-  },
-  sendMsg: function(event){
-    this.makeToast("等待审核");
-    this.makeToast("审核成功");
-    var tMsg = this.data.temp;
     this.setData({
-      msg:tMsg
+      msg:event.detail.value
+    })
+    
+  },
+
+  sendMsg: function(event){
+    var that = this;
+    wx.request({
+      url: 'https://ice97.cn/xcx/comments/',
+      header: {
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+      data: {
+        nickName:getApp().globalData.userInfo.nickName,
+        content:that.data.msg,
+        avatarUrl: getApp().globalData.userInfo.avatarUrl,
+        model:that.data.model_id
+      },
+      success: function (res) {
+        if (res.data.status == 0) {
+          wx.showToast({
+            title: res.data.info,
+            icon: 'loading',
+            duration: 1500
+          })
+        } else {
+          wx.showToast({
+            title: res.data.info,
+            icon: 'success',
+            duration: 1000
+          })
+        }
+      },
+      error: function (error) {
+        console.log(error);
+      }
     })
   },
   formReset:function(e){
