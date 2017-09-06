@@ -14,10 +14,14 @@ App({
     } else {
       //调用登录接口
       wx.getUserInfo({
+        
         withCredentials: false,
         success: function(res) {
           that.globalData.userInfo = res.userInfo
           typeof cb == "function" && cb(that.globalData.userInfo)
+        },
+        fail:function(res){
+          cb(false);
         }
       })
     }
@@ -29,7 +33,7 @@ App({
     model_url:'https://www.ice97.cn/xcx/models/',
     models_url:"https://www.ice97.cn/xcx/beans/all/",
     latest:'https://www.ice97.cn/xcx/getLatest/',
-    adverts: 'https://www.ice97.cn/xcx/adverts/'
-    
+    adverts: 'https://www.ice97.cn/xcx/adverts/',
+    search:'https://www.ice97.cn/xcx/search/'
   }
 })

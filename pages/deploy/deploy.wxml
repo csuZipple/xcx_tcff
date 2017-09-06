@@ -1,4 +1,9 @@
 <!--deploy.wxml-->
+<scroll-view>
+<view>
+  <modal title="发布权限" hidden="{{authHidden}}" confirm-text="授权" cancel-text="返回"
+  bindconfirm="authBindconfirm" bindcancel="authBindcancel">发布信息需要您的基本信息，请授权！</modal>
+</view>
 <view class="main-wrapper">
  <view class="error-tips" style="display:{{showError}}">{{errorTips}}</view>
 <view class="wrapper">
@@ -31,8 +36,8 @@
    </view>
 
   <view class="btn-area">
-    <button formType="reset" bindtap="formSubmit" class="submit">发布</button>
-    <button formType="reset" class="reset">Reset</button>
+    <button bindtap="formSubmit" class="submit">发布</button>
+    <button formType="reset"  class="reset">Reset</button>
   </view>
 
   <view>
@@ -43,3 +48,4 @@
 </form>
 </view>
 </view>
+</scroll-view>

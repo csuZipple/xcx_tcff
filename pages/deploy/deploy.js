@@ -1,16 +1,20 @@
 // deploy.js
+var app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userInfo:{},
     errorTips:"null",
     showError:"none",
     tip: '',
     buttonDisabled: false,
     modalHidden: true,
     show: false,
+    authHidden:true,
     register:{
       creator:"",
       title:"",
@@ -33,7 +37,7 @@ Page({
     showExtra1: "",
     showExtra2: ""
   },
-
+ 
   /**
    * 生命周期函数--监听页面加载
    */
@@ -47,6 +51,15 @@ Page({
      that.setData({
        tag_id: id
      })
+
+     app.getUserInfo(function (userInfo) {
+        if(userInfo == false){
+          that.setData({
+            authHidden:false
+          })
+        }
+     })
+
      //获取tag
      wx.request({
        url: getApp().globalData.tag_url + id + "/",//上线的话必须是https，没有appId的本地请求貌似不受影响  
@@ -91,7 +104,8 @@ Page({
        complete: function () {
          // complete  
        }
-     })  
+     })
+     
   },
 
   /**
@@ -172,22 +186,47 @@ Page({
   },
   formSubmit: function (e) {
     var that = this;
-    //判断表单数据是否符合规定,不为空，格式符合要求
-      //  if(this.data.register["creator"]==""){
-      //    that.makeToast("店主姓名不能为空！")
-      //  } else if (this.data.register["title"] == "") {
-      //    that.makeToast("店名不能为空！")
-      //  } else if (this.data.register["description"] == "") {
-      //    that.makeToast("商店描述不能为空！")
-      //  } else if (this.data.register["phone"] == "") {
-      //    that.makeToast("联系方式不能为空！")
-      //  } else if (this.data.register["location"] == "") {
-      //    that.makeToast("地址不能为空！")
-      //  }else{
-         //如果提交成功--启动对话框
+
+    if (app.globalData.userInfo == null){
+      app.getUserInfo(function (userInfo) {
+    //如果授权被拒绝过了  那么开启授权管理
+        if(userInfo == false){
+          wx.openSetting({
+            success: (res) => {
+              console.log("授权结果..")
+              console.log(res)
+              if (!res.authSetting.scope.userInfo || !res.authSetting.scope.userLocation) {
+                //又被拒绝了
+                wx.showToast({
+                  title: "对不起，拒绝授权无法发布！",
+                  icon: 'warning',
+                  duration: 1500
+                })
+              }
+            }
+          })
+        }
+
+      })
+
+      app.getUserInfo(function (userInfo) {
+        if (userInfo == false) {
+          wx.showToast({
+            title: title,
+            icon: 'warning',
+            duration: 1500
+          })
+        }
+        that.setData({
+          userInfo: userInfo
+        })
+      })
+
+      
+    }
 
          wx.request({
-           url: 'https://ice97.cn/xcx/models/',
+           url: app.globalData.model_url,
            header: {
              "Content-Type": "application/json"
            },
@@ -205,15 +244,16 @@ Page({
                    //shop_type,model_type
               },
            success: function (res) {
-             if (res.data.status == 0) {
+             console.log(res)
+             if (res.statusCode != 201) {
                wx.showToast({
-                 title: res.data.info,
+                 title: "发布失败",
                  icon: 'loading',
                  duration: 1500
                })
              } else {
                wx.showToast({
-                 title: res.data.info,
+                 title: "发布成功",
                  icon: 'success',
                  duration: 1000
                })
@@ -234,7 +274,19 @@ Page({
     //清除数据
   },
   formReset: function () {
-    console.log('form发生了reset事件')
+    this.setData({
+      register: {
+        creator: "",
+        title: "",
+        description: "",
+        phone: "",
+        location: "",
+        shop_type: "",
+        model_type: "",
+        extra1: "",
+        extra2: ""
+      }
+    })
   },
   modalBindaconfirm: function () {
     this.setData({
@@ -248,6 +300,33 @@ Page({
     this.setData({
       modalHidden: !this.data.modalHidden,
       tip: '您点击了【取消】按钮！'
+    })
+  }, 
+  authBindconfirm: function () {
+    var that = this;
+    app.getUserInfo(function (userInfo) {
+      if (userInfo == false) {
+        wx.openSetting({
+          success: (res) => {
+            console.log("授权结果..")
+            console.log(res)
+            if (!res.authSetting['scope.userInfo']) {
+              //又被拒绝了
+              that.setData({
+                authHidden:false
+              })
+            }
+          }
+        })
+      }
+    })
+  this.setData({
+     authHidden: !this.data.authHidden
+   })
+  },
+  authBindcancel: function () {
+    wx.navigateBack({
+      //返回之前的页面
     })
   }
   // "creator": "sdfasdfasdf",   //唯一标识

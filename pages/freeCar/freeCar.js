@@ -7,6 +7,7 @@ Page({
   // phone location pictures   extra1  extra2
 
   data: {
+    search_text:null,
     tags:{},//静态信息
     model:{},//动态信息
     //控制
@@ -155,5 +156,28 @@ Page({
     wx.navigateTo({
       url: "../deploy/deploy?id=" + that.data.tag_id
     })
+  },
+  searchInput:function(event){
+    this.setData({search_text:event.detail.value})
+  },
+  search:function(event){
+    var that = this;
+    wx.request({
+      url: getApp().globalData.search + that.data.search_text + "/"+that.data.tag_id+"/",//上线的话必须是https，没有appId的本地请求貌似不受影响  
+      data: {},
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+      // header: {}, // 设置请求的 header  
+      success: function (res) {
+        that.setData({
+          model: res.data
+        })
+      },
+      fail: function () {
+        // fail  
+      },
+      complete: function () {
+        // complete  
+      }
+    }) 
   }
 })

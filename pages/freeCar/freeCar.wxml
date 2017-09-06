@@ -1,7 +1,7 @@
 <!--pages/freeCar/freeCar.wxml-->
 <scroll-view class="main-wrapper">
 <view class="search-destination white">
-   <input class="search-input" placeholder="请输入关键词..." />
+   <input class="search-input" placeholder="请输入关键词..." bindinput="searchInput" />
    <button class="btn green" formType="reset" bindtap="search">搜索</button>
     <button class="btn blue" formType="reset" bindtap="deploy">发布</button>
  </view>
